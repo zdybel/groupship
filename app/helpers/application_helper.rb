@@ -1,3 +1,5 @@
 module ApplicationHelper
-	locations = ['Philadelphia', 'New York', 'Boston', 'Liverpool', 'Havana', 'Amsterdam', 'Hong Kong']
+	def locations
+		locations = ["Buenos Aires", "Cape Town", "Dubai", "Hong Kong", "Mombasa", "New York", "Shanghai", "Tokyo", "Philadelphia"].sort
+	end
 end
