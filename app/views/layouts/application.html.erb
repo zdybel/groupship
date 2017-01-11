@@ -12,7 +12,10 @@
   <% if current_user %>
 		<%= link_to(destroy_user_session_path, {method: :delete}) do %>
 			Log Out
-		<% end%>
+		<% end %>
+		<%= link_to(root_path, {method: :get}) do %>
+			Homepage
+		<% end %>
 	<% else %>
 		<%= link_to(new_user_session_path, {method: :get}) do %>
 			Log In

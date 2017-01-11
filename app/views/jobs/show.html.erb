@@ -1,2 +1,31 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<h1> jobs show</h1>
+<div class="job_description">
+	<p> <%= @job.description %> </p>
+</div>
+<div class="job_origin">
+	<p> Starting at: <%= @job.origin %> </p>
+</div>
+<div class="job_destination">
+	<p> Going to: <%= @job.destination %> </p>
+</div>
+<div class="job_amount">
+	<p> Number of Containers: <%= @job.container_amount %> </p>
+</div>
+<div class="job_cost">
+	<p> Cost: <%= @job.cost %> </p>
+</div>
+<% if @job.boats.length > 0 %>
+	<div class="job_boat">
+		<p> Boats Using: </p>
+		<% @job.boats.each do |boat| %> 
+			<p> <%= boat.name %> </p>
+		<% end %>
+		<button> Add another boat </button> 
+	</div>
+<% else %>
+	<div class="job_boat">
+		<button> Add a boat </button>
+	</div>
+<% end %>
+
+
