@@ -12,8 +12,8 @@ class User < ApplicationRecord
   :s3_region => "us-east-2",
   :s3_credentials => {
     :bucket => "shipping-app-paul",
-    :access_key_id => "AKIAJ2RNJVTCB2MNJVCA",
-    :secret_access_key => "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",
+    :access_key_id => "AKIAJYUMO2KOLYKC2PVA",
+    :secret_access_key => "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",
   }
 
   validates_attachment_content_type :avatar,
