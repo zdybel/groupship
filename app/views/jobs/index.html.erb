@@ -1,2 +1,11 @@
-<h1>Jobs#index</h1>
-<p>Find me in app/views/jobs/index.html.erb</p>
+<h1>Your Jobs</h1>
+<% current_user.jobs.each do |job| %>
+	<div class="job_description">
+		<p> <%= job.description %> </p>
+		<%= link_to("/jobs/#{job.id}", {method: :get}) do %>
+		 	Details
+	     <% end %>
+	</div>
+<% end %>
+
+
