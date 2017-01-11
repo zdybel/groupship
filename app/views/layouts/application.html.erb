@@ -9,6 +9,15 @@
   </head>
 
   <body>
+  <% if current_user %>
+		<%= link_to(destroy_user_session_path, {method: :delete}) do %>
+			Log Out
+		<% end%>
+	<% else %>
+		<%= link_to(new_user_session_path, {method: :get}) do %>
+			Log In
+		<% end %>
+	<% end %>
     <%= yield %>
   </body>
 </html>
