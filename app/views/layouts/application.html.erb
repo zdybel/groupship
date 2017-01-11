@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Groupship</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Groupship</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <% if current_user %>
+  <%= link_to destroy_user_session_path, {method: :delete} do %>
+  "Log Out"
+
+  <%= link_to new_job_path, {method: :get} do %>
+  Create New Job
+  <% end %>
+  
+  <% end %>
+
+  <% else %>
+  <%= link_to new_user_session_path, {method: :get} do %>
+  Log In
+  <% end %>
+  <% end %>
+
+
+  <%= yield %>
+</body>
 </html>
