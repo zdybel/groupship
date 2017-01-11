@@ -1,4 +1,5 @@
 class BoatsController < ApplicationController
+
   def index
     @boats = Boat.all
   end
@@ -25,6 +26,7 @@ class BoatsController < ApplicationController
   end
 
   private 
+
 
   def boats_params
     params.require(:boat).permit(:name, :location, :container_max, :user_id)

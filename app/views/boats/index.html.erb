@@ -1,18 +1,30 @@
+<h1>Boats</h1>
+
+
+<%= link_to "We Bought A Boat", new_boat_path %>
+ 
+<h2>Last Boats</h2>
 <% @boats.last(5).each do |boat| %>
 	<div class="boats">
 		<div class="boat_name">
+		<%= link_to("/boats/#{boat.name}", {method: :get}) do %>
 			<p><%= boat.name %></p>
+		<% end %>
 			</div>
 		<div class="boat_location">
-			<p><%= boat.location %></p>
+			<p>Location: <a href="https://en.wikipedia.org/wiki/<%= boat.location.gsub(' ','_') %>"> <%= boat.location %></a></p>
 			</div>
 		<div class="boat_max">
-			<p><%= boat.container_max %></p>
+			<p>Max: <%= boat.container_max %> Containers</p>
 			</div>
 	</div>
 
 <% end %>
 
+<div class="empty">
+</div>
+
+<h2>Your Boats</h2>
 <% current_user.boats.each do |boat| %>
 	<div class="boats">
 		<div class="boat_name">
@@ -21,10 +33,10 @@
 		<% end %>
 			</div>
 		<div class="boat_location">
-			<p><%= boat.location %></p>
+			<p>Location: <a href="https://en.wikipedia.org/wiki/<%= boat.location.gsub(' ','_') %>"> <%= boat.location %></a></p>
 			</div>
 		<div class="boat_max">
-			<p><%= boat.container_max %></p>
+			<p>Max: <%= boat.container_max %> Containers</p>
 			</div>
 	</div>
 
