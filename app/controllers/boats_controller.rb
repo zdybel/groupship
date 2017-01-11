@@ -12,7 +12,7 @@ class BoatsController < ApplicationController
   end
 
   def create
-    @boat = Boat.create(name: params[:name], location: params[:location], container_max: params[:container_max], user_id: helpers.current_user)
+    @boat = Boat.create(boats_params)
   end
 
   def edit
@@ -23,4 +23,11 @@ class BoatsController < ApplicationController
 
   def destroy
   end
+
+  private 
+
+  def boats_params
+    params.require(:boat).permit(:name, :location, :container_max, :user_id)
+  end
+
 end
