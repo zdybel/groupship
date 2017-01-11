@@ -12,11 +12,14 @@
   <% if current_user %>
   <%= link_to destroy_user_session_path, {method: :delete} do %>
   "Log Out"
+  <% end %>
 
   <%= link_to new_job_path, {method: :get} do %>
   Create New Job
   <% end %>
-  
+
+  <%= link_to(root_path, {method: :get}) do %>
+    Homepage
   <% end %>
 
   <% else %>
