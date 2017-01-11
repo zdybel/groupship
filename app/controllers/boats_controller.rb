@@ -1,6 +1,10 @@
 class BoatsController < ApplicationController
   def index
-    @boats = Boat.all
+    if current_user
+      @boats = Boat.all
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def show
@@ -24,7 +28,7 @@ class BoatsController < ApplicationController
   def destroy
   end
 
-  private 
+  private
 
   def boats_params
     params.require(:boat).permit(:name, :location, :container_max, :user_id)
