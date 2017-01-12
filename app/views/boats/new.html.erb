@@ -3,23 +3,20 @@
 <div class="new_boat">
 <%= form_for Boat.new do |f| %>
 
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-
-		<%= f.label "Add Photo" %>
-		<%= f.file_field :avatar %>
-
 		<h1>Create A New Boat</h1>
 		<p><%= flash[:boaterror] if flash[:boaterror] %></p>
 		<%= f.label :name, value: 'Boat Name' %>
 		<%= f.text_field :name %>
+
+		<%= f.label "Add Photo" %>
+		<%= f.file_field :avatar %>
 
 		<%= f.label :location, value: "Starting Location" %>
 		<%= f.select(:location, options_for_select(locations)) %>
 
 
 		<%= f.label :container_max %>
-		<%= f.number_field :container_max, min: 5, max: 18000 %></br>
+		<%= f.number_field :container_max, min: 5, max: 18000 %>
 
 
 		<%= f.hidden_field :user_id, value: current_user.id %>
