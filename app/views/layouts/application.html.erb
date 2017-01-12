@@ -16,28 +16,25 @@
       <div class="navbar-fixed-top">
         <% if current_user %>
         <ul class="list-unstyled list-inline">
-          <li class="active"><%= link_to destroy_user_session_path, {method: :delete} do %>
-            Log Out
-            <% end %>
-          </li>
-
-          <li><%= link_to new_job_path, {method: :get} do %>
-            Create New Job
-            <% end %>
-          </li>
-
-
-          <li><%= link_to new_boat_path, {method: :get} do %>
-            Add New Boat
-            <% end %>
-          </li>
-
-
-          <li><%= link_to(root_path, {method: :get}) do %>
+           <li><%= link_to(root_path, {method: :get}) do %>
             Homepage
             <% end %>
           </li>
 
+           <li><%= link_to new_boat_path, {method: :get} do %>
+            New Boat
+            <% end %>
+          </li>
+
+          <li><%= link_to new_job_path, {method: :get} do %>
+             New Job
+            <% end %>
+          </li>
+
+          <li class="active"><%= link_to destroy_user_session_path, {method: :delete} do %>
+            Log Out
+            <% end %>
+            </li>
           <% else %>
           <li><%= link_to new_user_session_path, {method: :get} do %>
             Log In

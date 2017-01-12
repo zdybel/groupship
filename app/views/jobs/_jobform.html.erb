@@ -1,26 +1,28 @@
 <% if current_user %>
-
+	<div class="new_job">
 	<%= form_for @job do |f| %>
 
-		<%= f.label :origin, value: "Origin:" %>
-		<%= f.select(:origin, options_for_select(locations)) %><br />
+		<h1>Create A New Job</h1>
 
-		<%= f.label :destination, value: "Destination:" %>
-		<%= f.select(:destination, options_for_select(locations)) %><br />
+		<%= f.label :origin, value: "Origin" %>
+		<%= f.select(:origin, options_for_select(locations)) %>
 
-		<%= f.text_area :description, :cols => "80", :rows => "10", placeholder: "Description" %><br />
+		<%= f.label :destination, value: "Destination" %>
+		<%= f.select(:destination, options_for_select(locations)) %>
+
+		<%= f.text_area :description, :cols => "80", :rows => "8", placeholder: "Description" %>
+
+		<%= f.label :container_amount, value: 'Container Amount' %>
+		<%= f.number_field :container_amount, min: 1 %>
+
+		<%= f.label :cost %>
+		<%= f.number_field :cost, :step => 0.01, min: 1 %>
 
 
-		<%= f.label :container_amount %>:
-		<%= f.text_field :container_amount %><br />
+		<%= f.hidden_field :user_id, value: current_user.id %>
 
-		<%= f.label :cost %>:
-		<%= f.text_field :cost %><br />
-
-
-		<%= f.hidden_field :user_id, value: current_user.id %><br />
-
-		<%= f.submit %>
+		<%= f.submit class: 'submit_button' %>
+	</div>
 
 	<% end %>
 <% end %>
