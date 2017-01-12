@@ -1,7 +1,7 @@
 class BoatsController < ApplicationController
 
   def index
-    @boats = Boat.all
+      @boats = Boat.all
   end
 
   def show
@@ -14,6 +14,7 @@ class BoatsController < ApplicationController
 
   def create
     @boat = Boat.create(boats_params)
+    redirect_to boats_path
   end
 
   def edit
@@ -25,7 +26,7 @@ class BoatsController < ApplicationController
   def destroy
   end
 
-  private 
+  private
 
 
   def boats_params
@@ -33,3 +34,6 @@ class BoatsController < ApplicationController
   end
 
 end
+
+
+

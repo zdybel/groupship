@@ -1,11 +1,15 @@
 <h1>Your Jobs</h1>
-<% current_user.jobs.each do |job| %>
-	<div class="job_description">
-		<p> <%= job.description %> </p>
-		<%= link_to("/jobs/#{job.id}", {method: :get}) do %>
-		 	Details
-	     <% end %>
-	</div>
+<% if current_user %>
+	<% if current_user%>
+		<% current_user.jobs.each do |job| %>
+			<div class="job_description">
+				<p> <%= job.description %> </p>
+				<%= link_to("/jobs/#{job.id}", {method: :get}) do %>
+			 	Details
+		    	 <% end %>
+			</div>
+		<% end %>
+	<%end%>
 <% end %>
 
 
