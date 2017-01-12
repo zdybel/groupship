@@ -1,10 +1,11 @@
 class BoatsController < ApplicationController
+
   def index
-    @boats = Boat.all
+      @boats = Boat.all
   end
 
   def show
-    @boat = Boat.find_by(params[:name])
+    @boat = Boat.find(params[:id])
   end
 
   def new
@@ -13,6 +14,7 @@ class BoatsController < ApplicationController
 
   def create
     @boat = Boat.create(boats_params)
+    redirect_to boats_path
   end
 
   def edit
@@ -24,10 +26,14 @@ class BoatsController < ApplicationController
   def destroy
   end
 
-  private 
+  private
+
 
   def boats_params
     params.require(:boat).permit(:name, :location, :container_max, :user_id)
   end
 
 end
+
+
+

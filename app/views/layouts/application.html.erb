@@ -6,29 +6,51 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
 <body>
-  <% if current_user %>
-  <%= link_to destroy_user_session_path, {method: :delete} do %>
-  "Log Out"
-  <% end %>
 
-  <%= link_to new_job_path, {method: :get} do %>
-  Create New Job
-  <% end %>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-fixed-top">
+        <% if current_user %>
+        <ul class="list-unstyled list-inline">
+          <li class="active"><%= link_to destroy_user_session_path, {method: :delete} do %>
+            Log Out
+            <% end %>
+          </li>
 
-  <%= link_to(root_path, {method: :get}) do %>
-    Homepage
-  <% end %>
-
-  <% else %>
-  <%= link_to new_user_session_path, {method: :get} do %>
-  Log In
-  <% end %>
-  <% end %>
+          <li><%= link_to new_job_path, {method: :get} do %>
+            Create New Job
+            <% end %>
+          </li>
 
 
-  <%= yield %>
+          <li><%= link_to new_boat_path, {method: :get} do %>
+            Add New Boat
+            <% end %>
+          </li>
+
+
+          <li><%= link_to(root_path, {method: :get}) do %>
+            Homepage
+            <% end %>
+          </li>
+
+          <% else %>
+          <li><%= link_to new_user_session_path, {method: :get} do %>
+            Log In
+            <% end %>
+          </li>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+
+<%= yield %>
+
+ 
 </body>
 </html>

@@ -1,3 +1,24 @@
 // Place all the styles related to the Boats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.boats {
+	float: left;
+	text-align: center;
+	margin-left: 20px;
+}
+
+
+.boat_name a {
+	color: red;
+	font-size: 1.5em;
+}
+
+.empty {
+	clear: both;
+}
+
+#boat_name {
+	display: block;
+	width: 200px;
+}

@@ -1,20 +1,26 @@
-<%= form_for @job do |f| %>
-<%= f.label :origin %>:
-<%= f.text_field :origin %><br />
+<% if current_user %>
 
-<%= f.label :destination %>:
-<%= f.text_field :destination %><br />
+	<%= form_for @job do |f| %>
 
-<%= f.label :description %>:
-<%= f.text_field :description %><br />
+		<%= f.label :origin, value: "Origin:" %>
+		<%= f.select(:origin, options_for_select(locations)) %><br />
 
-<%= f.label :container_amount %>:
-<%= f.text_field :container_amount %><br />
+		<%= f.label :destination, value: "Destination:" %>
+		<%= f.select(:destination, options_for_select(locations)) %><br />
 
-<%= f.label :cost %>:
-<%= f.text_field :cost %><br />
+		<%= f.text_area :description, :cols => "80", :rows => "10", placeholder: "Description" %><br />
 
-<%= f.hidden_field :user_id, value: current_user.id %><br />
 
-<%= f.submit %>
+		<%= f.label :container_amount %>:
+		<%= f.text_field :container_amount %><br />
+
+		<%= f.label :cost %>:
+		<%= f.text_field :cost %><br />
+
+
+		<%= f.hidden_field :user_id, value: current_user.id %><br />
+
+		<%= f.submit %>
+
+	<% end %>
 <% end %>
