@@ -13,21 +13,23 @@
 
 <% end %>
 
-<% current_user.boats.each do |boat| %>
-	<div class="boats">
-		<div class="boat_name">
-		<%= link_to("/boats/#{boat.name}", {method: :get}) do %>
-			<p><%= boat.name %></p>
-		<% end %>
-			</div>
-		<div class="boat_location">
-			<p><%= boat.location %></p>
-			</div>
-		<div class="boat_max">
-			<p><%= boat.container_max %></p>
-			</div>
-	</div>
+<% if current_user %>
+	<% current_user.boats.each do |boat| %>
+		<div class="boats">
+			<div class="boat_name">
+			<%= link_to("/boats/#{boat.name}", {method: :get}) do %>
+				<p><%= boat.name %></p>
+			<% end %>
+				</div>
+			<div class="boat_location">
+				<p><%= boat.location %></p>
+				</div>
+			<div class="boat_max">
+				<p><%= boat.container_max %></p>
+				</div>
+		</div>
 
+	<% end %>
 <% end %>
 
 

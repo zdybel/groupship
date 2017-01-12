@@ -1,10 +1,6 @@
 class BoatsController < ApplicationController
   def index
-    if current_user
       @boats = Boat.all
-    else
-      redirect_to new_user_session_path
-    end
   end
 
   def show
@@ -35,3 +31,6 @@ class BoatsController < ApplicationController
   end
 
 end
+
+
+
