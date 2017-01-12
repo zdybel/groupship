@@ -9,16 +9,43 @@
 }
 
 
-.boat_name a {
-	color: red;
-	font-size: 1.5em;
+.boat_name {
+	font-size: 1.2em;
 }
 
 .empty {
 	clear: both;
 }
 
-#boat_name {
+.new_boat {
+	margin: 0 auto;
+	width: 60%;
+	text-align: center;
+}
+
+.new_boat h1 {
+	text-align: center;
+}
+
+.new_boat label {
+	margin-top: 30px;
+	margin-right: 5px;
+}
+
+input#boat_name, select#boat_location {
+	width: 100%;
 	display: block;
-	width: 200px;
+	text-indent: 5px;
+}
+
+select#boat_location {
+}
+
+input#boat_container_max {
+}
+
+.submit_button {
+	margin: 0 auto;
+	display: block;
+	margin-top: 30px;
 }

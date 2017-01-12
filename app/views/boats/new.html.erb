@@ -1,13 +1,14 @@
-<h1>Create A New Boat</h1>
 <% if current_user %>
 
 <div class="new_boat">
 <%= form_for Boat.new do |f| %>
 
-		<%= f.label :name %>
+		<h1>Create A New Boat</h1>
+		<p><%= flash[:boaterror] if flash[:boaterror] %></p>
+		<%= f.label :name, value: 'Boat Name' %>
 		<%= f.text_field :name %> 
 
-		<%= f.label :location, value: "Starting Location:" %>
+		<%= f.label :location, value: "Starting Location" %>
 		<%= f.select(:location, options_for_select(locations)) %>
 
 
@@ -17,8 +18,10 @@
 		<%= f.hidden_field :user_id, value: current_user.id %>
 
 
-		<%= f.submit %>
+		<%= f.submit class: 'submit_button' %>
 
 	<% end %>
 <% end %>
 </div>
+
+

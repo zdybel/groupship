@@ -13,8 +13,13 @@ class BoatsController < ApplicationController
   end
 
   def create
-    @boat = Boat.create(boats_params)
+    @boat = Boat.new(boats_params)
+    if @boat.save
     redirect_to boats_path
+    else
+    redirect_back(fallback_location: new_boat_path)
+    flash[:boaterror] = "Boat Name Taken or Forms Blank"
+  end
   end
 
   def edit
