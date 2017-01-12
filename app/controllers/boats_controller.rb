@@ -5,9 +5,13 @@ class BoatsController < ApplicationController
   end
 
   def show
+    @containers_assigned = 0;
     if current_user
       @boat = Boat.find(params[:id])
       @jobs = Job.where(user_id: current_user.id)
+      @boat.jobs.each do |job|
+        @containers_assigned += job.container_amount
+      end
     end
   end
 
@@ -52,9 +56,6 @@ class BoatsController < ApplicationController
     @boat.jobs.delete(@job)
     redirect_to @boat
   end
-
-
-
 
 
   private

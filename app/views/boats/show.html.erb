@@ -11,6 +11,14 @@
 				<div class="boat_max">
 					<h3>Maximum Containers: <%= @boat.container_max %></h3>
 				</div>
+				<div class="boat_amount">
+					<h3>Containers Assigned: <%= @containers_assigned %></h3>
+				</div>
+				<% if @containers_assigned <= @boat.container_max %>
+					<div class="ship_btn">
+						<button>Confirm Shipment</button>
+					</div>
+				<% end %>
 			</div>
 		</div>
 		<div class="row jobs">
