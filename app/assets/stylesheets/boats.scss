@@ -8,7 +8,6 @@
 	margin-left: 20px;
 }
 
-
 .boat_name {
 	font-size: 1.2em;
 }
@@ -23,13 +22,8 @@
 	text-align: center;
 }
 
-.new_boat h1 {
-	text-align: center;
-}
-
 .new_boat label {
 	margin-top: 30px;
-	margin-right: 5px;
 }
 
 input#boat_name, select#boat_location {
@@ -38,21 +32,39 @@ input#boat_name, select#boat_location {
 	text-indent: 5px;
 }
 
-select#boat_location {
-}
-
-
-input#boat_container_max {
-}
-
 input#boat_avatar {
 	margin: 0 auto;
 }
+
 .submit_button {
 	margin: 0 auto;
 	display: block;
 	margin-top: 30px;
 }
+
+.new_job {
+	@extend .new_boat;
+}
+
+.new_job label {
+	margin-top: 30px;
+}
+
+.new_job textarea {
+	margin-top: 30px;
+}
+
+select#job_origin, select#job_destination, textarea#job_description {
+	width: 100%;
+	display: block;
+	text-indent: 5px;
+}
+
+input#job_container_amount, input#job_cost {
+	width: 20%;
+	margin-right: 10px;
+}
+
 
 .job{
 	background-color: grey;
