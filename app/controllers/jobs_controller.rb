@@ -4,6 +4,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @boats = Boat.where(user_id: current_user.id)
   end
 
   def new
@@ -28,6 +29,24 @@ class JobsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def add_boat
+    @job = Job.find(params[:job_id])
+    @boat = Boat.find(params[:boat_id])
+    @job.available = false
+    @job.save
+    @boat.jobs.push(@job)
+    redirect_to @job
+  end
+
+  def remove_boat
+    @job = Job.find(params[:job_id])
+    @boat = Boat.find(params[:boat_id])
+    @job.available = true
+    @job.save
+    @boat.jobs.delete(@job)
+    redirect_to @job
   end
   
   private

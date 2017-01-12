@@ -44,7 +44,6 @@ class BoatsController < ApplicationController
     @boat = Boat.find(params[:boat_id])
     @job.available = false
     @job.save
-    @job.boats.push(@boat)
     @boat.jobs.push(@job)
     redirect_to @boat
   end
@@ -54,7 +53,6 @@ class BoatsController < ApplicationController
     @boat = Boat.find(params[:boat_id])
     @job.available = true
     @job.save
-    @job.boats.push(@boat)
     @boat.jobs.delete(@job)
     redirect_to @boat
   end
