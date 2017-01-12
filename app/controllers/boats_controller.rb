@@ -5,7 +5,10 @@ class BoatsController < ApplicationController
   end
 
   def show
-    @boat = Boat.find(params[:id])
+    if current_user
+      @boat = Boat.find(params[:id])
+      @jobs = Job.where(user_id: current_user.id)
+    end
   end
 
   def new
@@ -30,6 +33,24 @@ class BoatsController < ApplicationController
 
   def destroy
   end
+
+  def add_job
+    @job = Job.find(params[:job_id])
+    @boat = Boat.find(params[:boat_id])
+    @boat.jobs.push(@job)
+    redirect_to @boat
+  end
+
+  def remove_job
+    @job = Job.find(params[:job_id])
+    @boat = Boat.find(params[:boat_id])
+    @boat.jobs.delete(@job)
+    redirect_to @boat
+  end
+
+
+
+
 
   private
 

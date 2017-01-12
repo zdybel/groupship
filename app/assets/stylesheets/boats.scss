@@ -41,6 +41,7 @@ input#boat_name, select#boat_location {
 select#boat_location {
 }
 
+
 input#boat_container_max {
 }
 
@@ -49,3 +50,31 @@ input#boat_container_max {
 	display: block;
 	margin-top: 30px;
 }
+
+.job{
+	background-color: grey;
+	border: outset black 1px;
+	text-align: center;
+	margin: 10px;
+	height: 150px;
+}
+
+.boat_info{
+	height: 400px;
+	text-align: center;
+}
+
+.job_description{
+	font-size: 16px;
+	height: 60px;
+}
+
+.job_containers{
+	height: 50px;
+}
+
+.add_or_remove_btn{
+	height: 30px;
+	margin-bottom: 10px;
+}
+
