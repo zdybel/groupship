@@ -36,7 +36,7 @@
 		<div class="row jobs">
 			<h2> Jobs you can add: </h2>
 			<% @jobs.each do |job| %>
-			
+				<% if job.available == true %>
 					<div class="job col-sm-3">
 						<div class="job_description">
 							<p> <%= job.description[0..40] %>...</p>
@@ -52,7 +52,7 @@
 							<% end %>
 						</div>
 					</div>
-			
+				<% end %>
 			<% end %>
 		</div>
 	</div>

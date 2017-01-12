@@ -17,12 +17,13 @@ class BoatsController < ApplicationController
 
   def create
     @boat = Boat.new(boats_params)
+    @boat.available = true
     if @boat.save
     redirect_to boats_path
     else
     redirect_back(fallback_location: new_boat_path)
     flash[:boaterror] = "Boat Name Taken or Forms Blank"
-  end
+    end
   end
 
   def edit
@@ -37,6 +38,8 @@ class BoatsController < ApplicationController
   def add_job
     @job = Job.find(params[:job_id])
     @boat = Boat.find(params[:boat_id])
+    @job.available = false
+    @job.save
     @boat.jobs.push(@job)
     redirect_to @boat
   end
@@ -44,6 +47,8 @@ class BoatsController < ApplicationController
   def remove_job
     @job = Job.find(params[:job_id])
     @boat = Boat.find(params[:boat_id])
+    @job.available = true
+    @job.save
     @boat.jobs.delete(@job)
     redirect_to @boat
   end
