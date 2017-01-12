@@ -30,7 +30,7 @@
 			<p><%= boat.name %></p>
 		<% end %>
 			</div>
-			<div class="boat-pic img-responsive"><%= image_tag boat.avatar.url %>
+			<div class="boat-pic"><%= image_tag boat.avatar.url, class: "img-responsive" %>
 			</div>
 		<div class="boat_location">
 			<p>Location: <a href="https://en.wikipedia.org/wiki/<%= boat.location.gsub(' ','_') %>"> <%= boat.location %></a></p>
