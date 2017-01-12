@@ -8,6 +8,9 @@
 	margin-left: 20px;
 }
 
+.boats_title{
+	text-align: center;
+}
 
 .boat_name {
 	font-size: 1.2em;
@@ -79,4 +82,8 @@ input#boat_avatar {
 .add_or_remove_btn{
 	height: 30px;
 	margin-bottom: 10px;
+}
+
+.boat_image{
+	width: 200px;
 }

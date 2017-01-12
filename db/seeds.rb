@@ -23,10 +23,10 @@ Boat.create(name: "USS Not Yours", location: "Philadelphia", user_id: 2, contain
 
 Boat.create(name: "Panamonium", location: "Philadelphia", user_id: 2, container_max: 900, available: true)
 
-Job.create(cost: 2000.00, origin: "Philadelphia", destination: "New York", description: "This shipment is for Urban Outfitters and it is a bunch of clothes that they need to get from one store or another.", container_amount: 8, user_id: 1, available: true)
+Job.create(cost: 2000.00, origin: "Philadelphia", destination: "New York", description: "This shipment is for Urban Outfitters and it is a bunch of clothes that they need to get from one store or another.", container_amount: 125, user_id: 1, available: true)
 
-Job.create(cost: 3336.00, origin: "Tokyo", destination: "Charleston", description: "Please contact Bill Goner at Enterprise Solutions about any needed details on this shipment. His number is 414-867-5309", container_amount: 12, user_id: 1, available: true)
+Job.create(cost: 3336.00, origin: "Tokyo", destination: "Charleston", description: "Please contact Bill Goner at Enterprise Solutions about any needed details on this shipment. His number is 414-867-5309", container_amount: 900, user_id: 1, available: true)
 
-Job.create(cost: 4462.90, origin: "Boston", destination: "Philadelphia", description: "A shipment of food that will have the refridgeration built into the packaging.  Homer Newton at hnewton@business.com.", container_amount: 9, user_id: 1, available: true)
+Job.create(cost: 4462.90, origin: "Boston", destination: "Philadelphia", description: "A shipment of food that will have the refridgeration built into the packaging.  Homer Newton at hnewton@business.com.", container_amount: 544, user_id: 1, available: true)
 
 Job.create(cost: 5923.56, origin: "New York", destination: "London", description: "American Muscle Cars has a bunch of newly designed automobiles that they need to transport to London.  Nancy is the lead on this shipment.", container_amount: 2, user_id: 1, available: true)
