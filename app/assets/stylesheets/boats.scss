@@ -8,6 +8,12 @@
 	margin-left: 20px;
 }
 
+
+.boats_title{
+	text-align: center;
+}
+
+
 .boat_name {
 	font-size: 1.2em;
 }
@@ -91,4 +97,8 @@ input#job_container_amount, input#job_cost {
 .add_or_remove_btn{
 	height: 30px;
 	margin-bottom: 10px;
+}
+
+.boat_image{
+	width: 200px;
 }

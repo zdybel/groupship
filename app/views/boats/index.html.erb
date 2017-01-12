@@ -1,44 +1,75 @@
-<h1>Boats</h1>
-
-
-<%= link_to "We Bought A Boat", new_boat_path %>
-<h2>Last Boats</h2>
-<% @boats.last(5).each do |boat| %>
-	<div class="boats">
-		<div class="boat_name">
-			<p><%= boat.name %></p>
-			</div>
-		<div class="boat_location">
-			<p>Location: <%= boat.location %></p>
-			</div>
-		<div class="boat_max">
-			<p>Max: <%= boat.container_max %> Containers</p>
-			</div>
+<div class="container">
+	<div class="row boats_title">
+		<div class="col-sm-4 col-sm-offset-4">
+			<h1>Boats</h1>
+			<%= link_to "We Bought A Boat", new_boat_path %>	
+		</div>
 	</div>
 
-<% end %>
+	<div class="row">
+		<div class="col-sm-10">
+			<h2>Last Boats</h2>
+			<% @boats.last(5).each do |boat| %>
+				<div class="boats col-sm-2">
+					<div class="boat_name">
+						<p><%= boat.name %></p>
+					</div>
+					<div class="boat_location">
+						<p>Location: <%= boat.location %></p>
+					</div>
+					<div class="boat_max">
+						<p>Max: <%= boat.container_max %> Containers</p>				
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
 
-<div class="empty">
+	
+
+	<div class="row">
+		<div class="col-sm-10">
+			<% if current_user %>
+				<h2>Your Boats</h2>
+				<% current_user.boats.each do |boat| %>
+					<div class="boats col-sm-2">
+						<div class="boat_name">
+							<%= link_to("/boats/#{boat.id}", {method: :get}) do %>
+								<p><%= boat.name %></p>
+							<% end %>
+						</div>
+						<div class="boat-pic"><%= image_tag boat.avatar.url, class: "img-responsive" %>
+						</div>
+						<div class="boat_location">
+							<p>Location: <a href="https://en.wikipedia.org/wiki/<%= boat.location.gsub(' ','_') %>"> <%= boat.location %></a></p>
+						</div>
+						<div class="boat_max">
+							<p>Max: <%= boat.container_max %> Containers</p>
+						</div>
+					</div>
+					
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-10">
+			<% if current_user %>
+				<h2>Your Jobs</h2>
+				<% current_user.jobs.each do |job| %>
+					<div class="boats col-sm-2">
+						<div class="boat_name">
+							<%= link_to("/jobs/#{job.id}", {method: :get}) do %>
+								<p><%= job.description[0..30] %>...</p>
+							<% end %>
+						</div>
+						<div class="boat_max">
+							<p>Containers: <%= job.container_amount %></p>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
 </div>
-
-<% if current_user %>
-<h2>Your Boats</h2>
-<% current_user.boats.each do |boat| %>
-	<div class="boats">
-		<div class="boat_name">
-		<%= link_to("/boats/#{boat.id}", {method: :get}) do %>
-			<p><%= boat.name %></p>
-		<% end %>
-			</div>
-			<div class="boat-pic"><%= image_tag boat.avatar.url, class: "img-responsive" %>
-			</div>
-		<div class="boat_location">
-			<p>Location: <a href="https://en.wikipedia.org/wiki/<%= boat.location.gsub(' ','_') %>"> <%= boat.location %></a></p>
-			</div>
-		<div class="boat_max">
-			<p>Max: <%= boat.container_max %> Containers</p>
-			</div>
-	</div>
-
-	<% end %>
-<% end %>
