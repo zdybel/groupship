@@ -13,6 +13,7 @@ class BoatsController < ApplicationController
 
   def create
     @boat = Boat.create(boats_params)
+    redirect_to boats_path
   end
 
   def edit
@@ -24,7 +25,7 @@ class BoatsController < ApplicationController
   def destroy
   end
 
-  private 
+  private
 
   def boats_params
     params.require(:boat).permit(:name, :location, :container_max, :user_id)
