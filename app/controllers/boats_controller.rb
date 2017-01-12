@@ -13,6 +13,7 @@ class BoatsController < ApplicationController
 
   def create
     @boat = Boat.create(boats_params)
+    redirect_to boats_path
   end
 
   def edit
