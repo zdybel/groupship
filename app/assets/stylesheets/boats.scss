@@ -7,6 +7,8 @@
 	text-align: center;
 	margin-left: 20px;
 }
+
+
 .boat_name a {
 	color: red;
 	font-size: 1.5em;
@@ -16,5 +18,7 @@
 	clear: both;
 }
 
-
-
+#boat_name {
+	display: block;
+	width: 200px;
+}
