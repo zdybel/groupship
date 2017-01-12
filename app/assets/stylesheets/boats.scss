@@ -9,16 +9,72 @@
 }
 
 
-.boat_name a {
-	color: red;
-	font-size: 1.5em;
+.boat_name {
+	font-size: 1.2em;
 }
 
 .empty {
 	clear: both;
 }
 
-#boat_name {
-	display: block;
-	width: 200px;
+.new_boat {
+	margin: 0 auto;
+	width: 60%;
+	text-align: center;
 }
+
+.new_boat h1 {
+	text-align: center;
+}
+
+.new_boat label {
+	margin-top: 30px;
+	margin-right: 5px;
+}
+
+input#boat_name, select#boat_location {
+	width: 100%;
+	display: block;
+	text-indent: 5px;
+}
+
+select#boat_location {
+}
+
+
+input#boat_container_max {
+}
+
+.submit_button {
+	margin: 0 auto;
+	display: block;
+	margin-top: 30px;
+}
+
+.job{
+	background-color: grey;
+	border: outset black 1px;
+	text-align: center;
+	margin: 10px;
+	height: 150px;
+}
+
+.boat_info{
+	height: 400px;
+	text-align: center;
+}
+
+.job_description{
+	font-size: 16px;
+	height: 60px;
+}
+
+.job_containers{
+	height: 50px;
+}
+
+.add_or_remove_btn{
+	height: 30px;
+	margin-bottom: 10px;
+}
+

@@ -1,11 +1,59 @@
-<div class="boat_info">
-	<div class="boat_name">
-		<p><%= @boat.name %></p>
+<% if current_user %>
+	<div class="container">
+		<div class="row boat_info">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div class="boat_name">
+					<h1><%= @boat.name.capitalize %></h1>
+				</div>
+				<div class="boat_location">
+					<h3>Boat Location: <%= @boat.location.capitalize %></h3>
+				</div>
+				<div class="boat_max">
+					<h3>Maximum Containers: <%= @boat.container_max %></h3>
+				</div>
+			</div>
 		</div>
-	<div class="boat_location">
-		<p><%= @boat.location %></p>
+		<div class="row jobs">
+			<h2> This boat's jobs: </h2>
+			<% @boat.jobs.each do |job| %>
+				<div class="job col-sm-3">
+					<div class="job_description">
+						<p> <%= job.description[0..40] %>...</p>
+					</div>
+					<div class="job_containers">
+						<p><%= job.container_amount %> containers </p>
+					</div>
+					<div class="add_or_remove_btn">
+						<%= form_tag boats_remove_job_path do %>
+							<%= hidden_field_tag :job_id, job.id %>
+							<%= hidden_field_tag :boat_id, @boat.id%>
+							<%= submit_tag "Remove Job From Boat" %>
+						<% end %>
+					</div>
+				</div>
+			<% end %>
 		</div>
-	<div class="boat_max">
-		<p><%= @boat.container_max %></p>
+		<div class="row jobs">
+			<h2> Jobs you can add: </h2>
+			<% @jobs.each do |job| %>
+			
+					<div class="job col-sm-3">
+						<div class="job_description">
+							<p> <%= job.description[0..40] %>...</p>
+						</div>
+						<div class="job_containers">
+							<p><%= job.container_amount %> containers </p>
+						</div>
+						<div class="add_or_remove_btn">
+							<%= form_tag boats_add_job_path do %>
+								<%= hidden_field_tag :job_id, job.id %>
+								<%= hidden_field_tag :boat_id, @boat.id%>
+								<%= submit_tag "Add Job to Boat" %>
+							<% end %>
+						</div>
+					</div>
+			
+			<% end %>
 		</div>
-</div>
+	</div>
+<% end %>
