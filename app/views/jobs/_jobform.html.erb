@@ -3,7 +3,7 @@
 	<%= form_for @job do |f| %>
 
 		<h1>Create A New Job</h1>
-
+		<p><%= flash[:joberror] if flash[:joberror] %></p>
 		<%= f.label :origin, value: "Origin" %>
 		<%= f.select(:origin, options_for_select(locations)) %>
 
@@ -13,10 +13,10 @@
 		<%= f.text_area :description, :cols => "80", :rows => "8", placeholder: "Description" %>
 
 		<%= f.label :container_amount, value: 'Container Amount' %>
-		<%= f.number_field :container_amount, min: 1 %>
+		<%= f.number_field :container_amount, value: contain_amount, min: 1 %>
 
-		<%= f.label :cost %>
-		<%= f.number_field :cost, :step => 0.01, min: 1 %>
+		<%= f.label :cost, '$' %>
+		<%= f.number_field :cost, value: contain_max_random, step: 0.001, min: 1.00 %>
 
 
 		<%= f.hidden_field :user_id, value: current_user.id %>

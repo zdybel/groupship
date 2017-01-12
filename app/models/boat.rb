@@ -8,6 +8,6 @@ class Boat < ApplicationRecord
 
 	validates :name, presence: true, uniqueness: true
 	validates :location, presence: true
-	validates :container_max, presence: true
+	validates :container_max, presence: true, numericality: { only_integer: true }
 
 end

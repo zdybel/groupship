@@ -12,9 +12,13 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.create(job_params)
-    @job.save
+    if @job.save
     flash[:notice] = "Job Successfully Created"
     redirect_to root_path
+    else 
+    redirect_back(fallback_location: new_boat_path)
+    flash[:joberror] = "Please Add Description"
+    end 
   end
 
   def edit

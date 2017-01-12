@@ -16,7 +16,7 @@
 
 
 		<%= f.label :container_max %>
-		<%= f.number_field :container_max, min: 5, max: 18000 %>
+		<%= f.number_field :container_max, value: contain_max_random, min: 5, max: 18000 %>
 
 
 		<%= f.hidden_field :user_id, value: current_user.id %>
