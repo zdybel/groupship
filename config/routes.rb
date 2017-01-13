@@ -10,5 +10,9 @@ Rails.application.routes.draw do
 
   post 'boats/remove_job'
 
+  post 'jobs/add_boat'
+
+  post 'jobs/remove_boat'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
