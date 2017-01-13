@@ -15,17 +15,15 @@
 	<p> Cost: <%= @job.cost %> </p>
 </div>
 <% if @job.boats.length > 0 %>
-	<div class="job_boat">
-		<p> Boats Using: </p>
-		<% @job.boats.each do |boat| %> 
-			<p> <%= boat.name %> </p>
-		<% end %>
-		<button> Add another boat </button> 
-	</div>
+<div class="job_boat">
+	<p> Boats Using: </p>
+	<% @job.boats.each do |boat| %>
+	<p> <%= boat.name %> </p>
+	<% end %>
+	<button> Add another boat </button>
+</div>
 <% else %>
-	<div class="job_boat">
-		<button> Add a boat </button>
-	</div>
+<div class="job_boat">
+	<button> Add a boat </button>
+</div>
 <% end %>
-
-

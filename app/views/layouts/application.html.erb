@@ -6,6 +6,7 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -27,6 +28,11 @@
 
           <li><%= link_to new_job_path, {method: :get} do %>
              New Job
+            <% end %>
+          </li>
+
+          <li><%= link_to jobs_path, {method: :get} do %>
+             Jobs Available
             <% end %>
           </li>
 
