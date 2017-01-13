@@ -14,4 +14,8 @@ module ApplicationHelper
 	def cost_amount
 		rand(500..100000)
 	end
+
+	def random_string
+		(0...17).map { (65 + rand(26)).chr }.join + " " + (0...17).map { (65 + rand(26)).chr }.join + " " + (0..18).map { (65 + rand(26)).chr }.join 
+	end
 end

@@ -10,7 +10,7 @@
 		<%= f.label :destination, value: "Destination" %>
 		<%= f.select(:destination, options_for_select(locations)) %>
 
-		<%= f.text_area :description, :cols => "80", :rows => "8", placeholder: "Description" %>
+		<%= f.text_area :description, :cols => "80", :rows => "8", value: random_string, placeholder: "Please Write 50 Characters" %>
 
 		<%= f.label :container_amount, value: 'Container Amount' %>
 		<%= f.number_field :container_amount, value: contain_amount, min: 1 %>
