@@ -30,10 +30,7 @@ class BoatsController < ApplicationController
 
 
   def boats_params
-    params.require(:boat).permit(:name, :location, :container_max, :user_id)
+    params.require(:boat).permit(:name, :location, :container_max, :user_id, :avatar)
   end
 
 end
-
-
-

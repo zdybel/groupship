@@ -5,17 +5,18 @@
 
 <h2>Last Boats</h2>
 <% @boats.last(5).each do |boat| %>
-	<div class="boats">
-		<div class="boat_name">
-			<p><a><%= boat.name %></a></p>
-			</div>
-		<div class="boat_location">
-			<p>Location: <a><%= boat.location %></a></p>
-			</div>
-		<div class="boat_max">
-			<p>Max: <%= boat.container_max %> Containers</p>
-			</div>
+<div class="boats">
+	<div class="boat_name">
+		<p><a><%= boat.name %></a></p>
 	</div>
+	<%= image_tag boat.avatar.url %>
+	<div class="boat_location">
+		<p>Location: <a><%= boat.location %></a></p>
+	</div>
+	<div class="boat_max">
+		<p>Max: <%= boat.container_max %> Containers</p>
+	</div>
+</div>
 
 <% end %>
 
@@ -25,22 +26,20 @@
 <% if current_user %>
 <h2>Your Boats</h2>
 <% current_user.boats.each do |boat| %>
-	<div class="boats">
-		<div class="boat_name">
+<div class="boats">
+	<div class="boat_name">
 		<%= link_to("/boats/#{boat.id}", {method: :get}) do %>
-			<p><%= boat.name %></p>
+		<p><%= boat.name %></p>
 		<% end %>
-			</div>
-		<div class="boat_location">
-			<p>Location: <a href="https://en.wikipedia.org/wiki/<%= boat.location.gsub(' ','_') %>"> <%= boat.location %></a></p>
-			</div>
-		<div class="boat_max">
-			<p>Max: <%= boat.container_max %> Containers</p>
-			</div>
 	</div>
+	<%= image_tag boat.avatar.url %>
+	<div class="boat_location">
+		<p>Location: <a href="https://en.wikipedia.org/wiki/<%= boat.location.gsub(' ','_') %>"> <%= boat.location %></a></p>
+	</div>
+	<div class="boat_max">
+		<p>Max: <%= boat.container_max %> Containers</p>
+	</div>
+</div>
 
-	<% end %>
 <% end %>
-
-
-<%= image_tag current_user.avatar.url %>
+<% end %>
