@@ -1,77 +1,106 @@
 <% if current_user %>
-	<div class="container">
-		<div class="row  job_show_title">
-			<div class="col-sm-8 col-sm-offset-2" style="border: solid black 1px">
-				<div>
-					<h1> <%= @job.description %> </h1>
-				</div>
-			</div>
-			<div class="col-sm-4 col-sm-offset-4">
-				<div>
-					<h3> Starting at: <%= @job.origin %> </h3>
-				</div>
-				<div>
-					<h3> Going to: <%= @job.destination %> </h3>
-				</div>
-				<div>
-					<h3> Number of Containers: <%= @job.container_amount %> </h3>
-				</div>
-				<div>
-					<h3> Cost: <%= @job.cost %> </h3>
-				</div>
+<div class="container">
+	<div class="row  job_show_title">
+		<div class="col-sm-8 col-sm-offset-2" style="border: solid black 1px">
+			<div>
+				<h1> <%= @job.description %> </h1>
 			</div>
 		</div>
-		<div class="row">
-			<h2> This job's boats: </h2>
-			<% @job.boats.each do |boat| %>
-				<div class="boat col-sm-3">
-					<div class="boat_name">
-						<h4><%= boat.name %></h4>
-					</div>
-					<div class="boat_location">
-						<p>Location: <%= boat.location %></p>
-					</div>
-					<div class="boat_max">
-						<p>Max Containers: <%= boat.container_max%></p>
-					</div>
-					<div class="add_or_remove_btn">
-						<%= form_tag jobs_remove_boat_path do %>
-							<%= hidden_field_tag :job_id, @job.id%>
-							<%= hidden_field_tag :boat_id, boat.id%>
-							<%= submit_tag "Remove Job from Boat"%>
-						<% end %>
-					</div>
-				</div>
-			<%end%>
-		</div>	
-		<div class="row">
-			<h2> Boats you can add this job to: </h2>
-			<% @boats.each do |boat| %>
-				<% if boat.available == true %>
-					<div class="boat col-sm-3">
-						<div class="boat_name">
-							<h4><%= boat.name %></h4>
-						</div>
-						<div class="boat_location">
-							<p>Location: <%= boat.location %></p>
-						</div>
-						<div class="boat_max">
-							<p>Max Containers: <%= boat.container_max%></p>
-						</div>
-						<div class="add_or_remove_btn">
-							<%= form_tag jobs_add_boat_path do %>
-								<%= hidden_field_tag :job_id, @job.id%>
-								<%= hidden_field_tag :boat_id, boat.id%>
-								<%= submit_tag "Add Job to Boat"%>
-							<% end %>
-						</div>
-					</div>
-				<% end %>
-			<%end%>
-		</div>	
+		<div class="col-sm-4 col-sm-offset-4">
+			<div>
+				<h3> Starting at: <%= @job.origin %> </h3>
+			</div>
+			<div>
+				<h3> Going to: <%= @job.destination %> </h3>
+			</div>
+			<div>
+				<h3> Number of Containers: <%= @job.container_amount %> </h3>
+			</div>
+			<div>
+				<h3> Cost: <%= @job.cost %> </h3>
+			</div>
+		</div>
 	</div>
+	<div class="row">
+		<h2> This job's boats: </h2>
+		<% @job.boats.each do |boat| %>
+		<div class="boat col-sm-3">
+			<div class="boat_name">
+				<h4><%= boat.name %></h4>
+			</div>
+			<div class="boat_location">
+				<p>Location: <%= boat.location %></p>
+			</div>
+			<div class="boat_max">
+				<p>Max Containers: <%= boat.container_max%></p>
+			</div>
+			<div class="add_or_remove_btn">
+				<%= form_tag jobs_remove_boat_path do %>
+				<%= hidden_field_tag :job_id, @job.id%>
+				<%= hidden_field_tag :boat_id, boat.id%>
+				<%= submit_tag "Remove Job from Boat"%>
+				<% end %>
+			</div>
+		</div>
+		<%end%>
+	</div>
+	<div class="row">
+		<h2> Boats you can add this job to: </h2>
+		<% @boats.each do |boat| %>
+		<% if boat.available == true %>
+		<div class="boat col-sm-3">
+			<div class="boat_name">
+				<h4><%= boat.name %></h4>
+			</div>
+			<div class="boat_location">
+				<p>Location: <%= boat.location %></p>
+			</div>
+			<div class="boat_max">
+				<p>Max Containers: <%= boat.container_max%></p>
+			</div>
+			<div class="add_or_remove_btn">
+				<%= form_tag jobs_add_boat_path do %>
+				<%= hidden_field_tag :job_id, @job.id%>
+				<%= hidden_field_tag :boat_id, boat.id%>
+				<%= submit_tag "Add Job to Boat"%>
+				<% end %>
+			</div>
+		</div>
+		<% end %>
+		<%end%>
+	</div>
+</div>
 <% end %>
 
-		
 
 
+
+<h1> jobs show</h1>
+<div class="job_description">
+	<p> <%= @job.description %> </p>
+</div>
+<div class="job_origin">
+	<p> Starting at: <%= @job.origin %> </p>
+</div>
+<div class="job_destination">
+	<p> Going to: <%= @job.destination %> </p>
+</div>
+<div class="job_amount">
+	<p> Number of Containers: <%= @job.container_amount %> </p>
+</div>
+<div class="job_cost">
+	<p> Cost: <%= @job.cost %> </p>
+</div>
+<% if @job.boats.length > 0 %>
+<div class="job_boat">
+	<p> Boats Using: </p>
+	<% @job.boats.each do |boat| %>
+	<p> <%= boat.name %> </p>
+	<% end %>
+	<button> Add another boat </button>
+</div>
+<% else %>
+<div class="job_boat">
+	<button> Add a boat </button>
+</div>
+<% end %>

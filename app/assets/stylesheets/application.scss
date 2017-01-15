@@ -1,0 +1,12 @@
+@import "materialize/components/color";
+@import "materialize";
+@import "boats";
+
+a:focus, a:hover {
+	color: black !important;
+	text-decoration: none !important;
+}
+
+a {
+	text-decoration: none;
+}
